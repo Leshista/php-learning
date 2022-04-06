@@ -41,6 +41,18 @@
     <?php
     echo $_GET["name"];
     ?>
+
+    <!-- A calculator -->
+
+    <form action="site.php" method="GET">
+        <input type="number" name="first_number">
+        <br>
+        <input type="number" name="second_number">
+        <br>
+        <input type="submit" value="Sumbit">
+    </form>
+
+    Answer: <?php echo $_GET["first_number"] + $_GET["second_number"] ?>
 </body>
 
 </html>
