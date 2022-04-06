@@ -19,6 +19,8 @@
     $null = null;
     $array = array(1, 2, "name", true);
     echo count($array), "<br>"; // equal to array.length in js
+    $people = array("marina" => 34, "nikita" => 50); // assosiative arrays (A.K.A. js objects)
+    echo $people["marina"], "<br>";
 
     // String functions
     echo strtoupper($string), "<br>"; // like toUpperCase in js
@@ -96,6 +98,7 @@
         echo $things[0];
         ?>
     <?php endif ?>
+
 </body>
 
 </html>
