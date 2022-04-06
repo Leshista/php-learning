@@ -38,9 +38,9 @@
         <input type="submit" value="Sumbit">
     </form>
 
-    <?php
-    echo $_GET["name"];
-    ?>
+    <?php if (isset($_GET["name"])) : ?>
+        <?php echo $_GET["name"] ?>
+    <?php endif; ?>
 
     <!-- A calculator -->
 
@@ -52,7 +52,18 @@
         <input type="submit" value="Sumbit">
     </form>
 
-    Answer: <?php echo $_GET["first_number"] + $_GET["second_number"] ?>
+    <?php if (isset($_GET["first_number"]) && isset($_GET["second_number"])) : ?>
+        <?php echo $_GET["first_number"] + $_GET["second_number"] ?>
+    <?php endif; ?>
+
+    <!-- A mad Libs Game -->
+
+    <form action="site.php" method="GET">
+        Color: <input type="text" name="color"><br>
+        Plural: <input type="text" name="plural"><br>
+        Person: <input type="text" name="person"><br>
+        <input type="submit" value="Sumbit">
+    </form>
 </body>
 
 </html>
