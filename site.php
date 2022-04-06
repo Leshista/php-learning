@@ -16,6 +16,13 @@
     $float = 1.310230123120;
     $boolean = true;
     $null = null;
+
+    // String functions
+    echo strtoupper($string), "<br>"; // like toUpperCase in js
+    echo strlen($string), "<br>"; // like string.length in js
+    echo $string[0], "<br>";
+    echo str_replace("b", "se", $string), "<br>"; // like replace in js
+    echo substr($string, 6, 2); // like slice in js
     ?>
 </body>
 
