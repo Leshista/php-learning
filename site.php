@@ -70,16 +70,14 @@
         <input type="submit" value="Sumbit">
     </form>
 
-    <?php if (isset($_GET["color"]) && isset($_GET["plural"]) && isset($_GET["person"])) : ?>
-        <?php
+    <?php if (isset($_GET["color"]) && isset($_GET["plural"]) && isset($_GET["person"])) :
         $color = $_GET["color"];
         $plural = $_GET["plural"];
         $person = $_GET["person"];
         echo "Roses are $color", "<br>";
         echo "$plural are blue", "<br>";
         echo "I love $person", "<br>";
-        ?>
-    <?php endif; ?>
+    endif ?>
 
     <!-- Arrays in forms -->
     <form action="site.php" method="post">
@@ -92,22 +90,31 @@
         <input type="submit" value="Sumbit">
     </form>
 
-    <?php if (isset($_POST["things"])) : ?>
-        <?php
+    <?php
+    if (isset($_POST["things"])) {
         $things = $_POST["things"];
         echo $things[0], "<br>";
-        ?>
-    <?php endif ?>
+    }
+    ?>
 
     <!-- Functions -->
     <?php
     function sayHi($name)
     {
-        echo "hello $name";
-    };
+        echo "hello $name", "<br>";
+    }
     sayHi('mf');
     ?>
 
+    <!-- If -->
+    <?php
+    $isTrue = false;
+    if ($isTrue) {
+        echo "True", "<br>";
+    } else {
+        echo "False", "<br>";
+    }
+    ?>
 </body>
 
 </html>
