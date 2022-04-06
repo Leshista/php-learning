@@ -95,9 +95,18 @@
     <?php if (isset($_POST["things"])) : ?>
         <?php
         $things = $_POST["things"];
-        echo $things[0];
+        echo $things[0], "<br>";
         ?>
     <?php endif ?>
+
+    <!-- Functions -->
+    <?php
+    function sayHi($name)
+    {
+        echo "hello $name";
+    };
+    sayHi('mf');
+    ?>
 
 </body>
 
