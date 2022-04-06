@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    // Basic Datatypes
+    // Basic Data Types
     $string = "To be or not to be";
     $int = 1;
     $float = 1.310230123120;
