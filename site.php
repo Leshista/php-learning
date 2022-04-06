@@ -12,8 +12,6 @@
     <?php
     // Basic Data Types
 
-    use function PHPSTORM_META\type;
-
     $string = "To be or not to be";
     $int = 1;
     $float = 1.310230123120;
@@ -80,6 +78,24 @@
         echo "I love $person", "<br>";
         ?>
     <?php endif; ?>
+
+    <!-- Arrays in forms -->
+    <form action="site.php" method="post">
+        A: <input type="checkbox" name="things[]" value="a">
+        <br>
+        B: <input type="checkbox" name="things[]" value="b">
+        <br>
+        C: <input type="checkbox" name="things[]" value="c">
+        <br>
+        <input type="submit" value="Sumbit">
+    </form>
+
+    <?php if (isset($_POST["things"])) : ?>
+        <?php
+        $things = $_POST["things"];
+        echo $things[0];
+        ?>
+    <?php endif ?>
 </body>
 
 </html>
