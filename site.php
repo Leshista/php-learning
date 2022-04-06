@@ -64,6 +64,17 @@
         Person: <input type="text" name="person"><br>
         <input type="submit" value="Sumbit">
     </form>
+
+    <?php if (isset($_GET["color"]) && isset($_GET["plural"]) && isset($_GET["person"])) : ?>
+        <?php
+        $color = $_GET["color"];
+        $plural = $_GET["plural"];
+        $person = $_GET["person"];
+        echo "Roses are $color", "<br>";
+        echo "$plural are blue", "<br>";
+        echo "I love $person", "<br>";
+        ?>
+    <?php endif; ?>
 </body>
 
 </html>
