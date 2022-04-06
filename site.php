@@ -22,7 +22,16 @@
     echo strlen($string), "<br>"; // like string.length in js
     echo $string[0], "<br>";
     echo str_replace("b", "se", $string), "<br>"; // like replace in js
-    echo substr($string, 6, 2); // like slice in js
+    echo substr($string, 6, 2), "<br>"; // like slice in js
+
+    // Number functions
+    echo abs(-100), "<br>";
+    echo pow(4, 2), "<br>"; // 4^2
+    echo sqrt(144), "<br>";
+    echo max(1, 2, 5), "<br>";
+    echo min(1, 2, 3, 4, 5, 5), "<br>";
+    echo round(1.012030123012030), "<br>"; // there is also ceil() and floor()
+
     ?>
 </body>
 
