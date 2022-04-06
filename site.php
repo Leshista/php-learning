@@ -31,7 +31,15 @@
     echo max(1, 2, 5), "<br>";
     echo min(1, 2, 3, 4, 5, 5), "<br>";
     echo round(1.012030123012030), "<br>"; // there is also ceil() and floor()
+    ?>
+    <!-- User interacion/Forms -->
+    <form action="site.php" method="GET">
+        Name: <input type="text" name="name">
+        <input type="submit" value="Sumbit">
+    </form>
 
+    <?php
+    echo $_GET["name"];
     ?>
 </body>
 
