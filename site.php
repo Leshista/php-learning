@@ -11,11 +11,16 @@
 <body>
     <?php
     // Basic Data Types
+
+    use function PHPSTORM_META\type;
+
     $string = "To be or not to be";
     $int = 1;
     $float = 1.310230123120;
     $boolean = true;
     $null = null;
+    $array = array(1, 2, "name", true);
+    echo count($array), "<br>"; // equal to array.length in js
 
     // String functions
     echo strtoupper($string), "<br>"; // like toUpperCase in js
