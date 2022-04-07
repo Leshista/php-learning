@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <?php include "header.html" ?>
+
     <?php
     // Basic Data Types
 
@@ -115,6 +117,19 @@
         echo "False", "<br>";
     }
     ?>
+
+    <!-- Including files -->
+    <?php
+    // In php there's no need to pass props to components
+    // We just declare variables and then include the component
+    // That needs them
+    $title = "The post";
+    $author = "The author";
+    $wordCount = 42;
+    include "article-header.php";
+    ?>
+
+    <?php include "footer.html" ?>
 </body>
 
 </html>
