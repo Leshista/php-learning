@@ -134,9 +134,23 @@
     <?php
     class Book
     {
-        var $title; // var $smth instead of 'this.smth = smth' in js
-        var $author;
-        var $pagesCount;
+        public $title; // var $smth instead of 'this.smth = smth' in js
+        public $author;
+        private $pagesCount;
+
+        function getPagesCount()
+        {
+            return $this->pagesCount;
+        }
+
+        function setPagesCount($pagesCount)
+        {
+            if (gettype($pagesCount) == "integer") {
+                $this->pagesCount = $pagesCount;
+            } else {
+                echo gettype($pagesCount), "<br>";
+            }
+        }
 
         function isALongBook()
         {
@@ -157,7 +171,7 @@
         {
             $this->title = $title;
             $this->author = $author;
-            $this->pagesCount = $pagesCount;
+            $this->setPagesCount($pagesCount);
         }
     }
 
