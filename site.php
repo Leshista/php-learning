@@ -134,16 +134,41 @@
     <?php
     class Book
     {
-        var $title;
+        var $title; // var $smth instead of 'this.smth = smth' in js
         var $author;
         var $pagesCount;
+
+        function isALongBook()
+        {
+            switch ($this->pagesCount) {
+                case ($this->pagesCount > 500):
+                    echo "That's a long one. <br>";
+                    break;
+                case ($this->pagesCount < 500):
+                    echo "That's a short one. <br>";
+                    break;
+                default:
+                    echo "That's not a book! <br>";
+                    break;
+            }
+        }
+
+        function __construct($title, $author, $pagesCount)
+        {
+            $this->title = $title;
+            $this->author = $author;
+            $this->pagesCount = $pagesCount;
+        }
     }
 
-    $mistborn = new Book;
-    $mistborn->title = "The Fallen Empire";
-    $mistborn->author = "Brando Sando";
-    $mistborn->pagesCount = 666;
-    echo $mistborn->title, "<br>";
+    $book1 = new Book("The Fallen Empire", "Brando Sando", 400);
+    echo $book1->title, "<br>";
+    $book2 = new Book("The Fellowship of the Ring", "J.R.R.Tolkien", 1000);
+    echo $book2->author, "<br>";
+    $book3 = new Book("Boulvard of Nowhere", "Me", 500);
+    $book1->isALongBook();
+    $book2->isALongBook();
+    $book3->isALongBook();
     ?>
 
     <?php include "footer.html" ?>
