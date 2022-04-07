@@ -127,6 +127,23 @@
     $author = "The author";
     $wordCount = 42;
     include "article-header.php";
+    echo "<br>";
+    ?>
+
+    <!-- Classes -->
+    <?php
+    class Book
+    {
+        var $title;
+        var $author;
+        var $pagesCount;
+    }
+
+    $mistborn = new Book;
+    $mistborn->title = "The Fallen Empire";
+    $mistborn->author = "Brando Sando";
+    $mistborn->pagesCount = 666;
+    echo $mistborn->title, "<br>";
     ?>
 
     <?php include "footer.html" ?>
