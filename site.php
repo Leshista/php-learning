@@ -204,7 +204,21 @@
     // Putting
     file_put_contents("dummy2.html", "<h2>I've been created by a script!</h2>");
     echo file_get_contents("dummy2.html");
-
+    ?>
+    <!-- cURL -->
+    <?php
+    $url = "https://jsonplaceholder.typicode.com/posts";
+    $resource = curl_init($url); // Initializing cURL with provided url
+    curl_setopt($resource, CURLOPT_SSL_VERIFYHOST, false); // Disabling SSL certificate cheking; otherwise error i'm too lazy to fix properly
+    curl_setopt($resource, CURLOPT_SSL_VERIFYPEER, false); // Same
+    var_dump($info = curl_getinfo($resource)); // get info of response
+    echo "<br><hr>";
+    $result = curl_exec($resource); // Doing what needs to be done
+    if (curl_errno($resource)) { // if curl has returned false
+        echo 'Curl error: ' . curl_error($resource); // print error
+    }
+    echo $result, "<br>";
+    curl_close($resource); // End the cURL
     ?>
     <?php include "footer.html" ?>
 </body>
