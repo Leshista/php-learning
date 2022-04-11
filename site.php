@@ -185,6 +185,27 @@
     $book3->isALongBook();
     ?>
 
+    <!-- Working with file sistem -->
+    <?php
+    // Magic constants
+    echo __DIR__, "<br>";
+    echo __FILE__, "<br>";
+    echo __LINE__, "<br>";
+    // Posting and deleting
+    mkdir('новая папка');
+    rename('новая папка', "newdir");
+    rmdir('newdir');
+    // Reading
+    echo file_exists('site.php'), "<br>";
+    echo is_dir('.'), "<br>";
+    echo is_file('./site.php'), "<br>";
+    echo file_get_contents("dummy.html");
+    var_dump(scandir('./'));
+    // Putting
+    file_put_contents("dummy2.html", "<h2>I've been created by a script!</h2>");
+    echo file_get_contents("dummy2.html");
+
+    ?>
     <?php include "footer.html" ?>
 </body>
 
