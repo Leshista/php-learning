@@ -206,40 +206,54 @@
     echo file_get_contents("dummy2.html");
     ?>
     <!-- cURL read -->
-    <?php
-    $url = "https://jsonplaceholder.typicode.com/posts";
-    $resource = curl_init($url); // Initializing cURL with provided url
-    curl_setopt($resource, CURLOPT_SSL_VERIFYHOST, false); // Disabling SSL certificate cheking; otherwise error i'm too lazy to fix properly
-    curl_setopt($resource, CURLOPT_SSL_VERIFYPEER, false); // Same
-    var_dump($info = curl_getinfo($resource)); // get info of response
-    echo "<br><hr>";
-    $result = curl_exec($resource); // Doing what needs to be done
-    if (curl_errno($resource)) { // if curl has returned false
-        echo 'Curl error: ' . curl_error($resource); // print error
-    }
-    echo $result, "<br><hr>";
-    curl_close($resource); // End the cURL
-    ?>
+    <!-- <?php
+            $url = "https://jsonplaceholder.typicode.com/posts";
+            $resource = curl_init($url); // Initializing cURL with provided url
+            curl_setopt($resource, CURLOPT_SSL_VERIFYHOST, false); // Disabling SSL certificate cheking; otherwise error i'm too lazy to fix properly
+            curl_setopt($resource, CURLOPT_SSL_VERIFYPEER, false); // Same
+            var_dump($info = curl_getinfo($resource)); // get info of response
+            echo "<br><hr>";
+            $result = curl_exec($resource); // Doing what needs to be done
+            if (curl_errno($resource)) { // if curl has returned false
+                echo 'Curl error: ' . curl_error($resource); // print error
+            }
+            echo $result, "<br><hr>";
+            curl_close($resource); // End the cURL
+            ?> -->
     <!-- cURL post -->
+    <!-- <?php
+            $url = "https://jsonplaceholder.typicode.com/posts";
+            $user = [
+                "name" => "Zoro",
+                "profession" => "PirateHunter"
+            ];
+            $resourse = curl_init();
+            curl_setopt_array($resource, [
+                CURLOPT_URL => $url,
+                CURLOPT_SSL_VERIFYHOST => false,
+                CURLOPT_SSL_VERIFYPEER => false,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POST => true,
+                CURLOPT_HEADER => ['content-type: application/json'],
+                CURLOPT_POSTFIELDS => json_encode($user)
+            ]);
+            $result = curl_exec($resourse);
+            curl_close($resource);
+            echo $result;
+            ?> -->
+    <!-- One more time with another video -->
     <?php
-    $url = "https://jsonplaceholder.typicode.com/posts";
-    $user = [
-        "name" => "Zoro",
-        "profession" => "PirateHunter"
-    ];
-    $resourse = curl_init($url);
-    curl_setopt_array($resource, [
-        CURLOPT_URL => $url,
-        CURLOPT_SSL_VERIFYHOST => false,
+    $curl = curl_init();
+    $search = "Сандерсон Б.";
+    $url = "https://www.chitai-gorod.ru/search/result/?q=$search&type=author&page=1";
+    curl_setopt_array($curl, [
+        CURLOPT_URL => ($url),
         CURLOPT_SSL_VERIFYPEER => false,
         CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_POST => true,
-        CURLOPT_HEADER => ['content-type: application/json'],
-        CURLOPT_POSTFIELDS => json_encode($user)
     ]);
-    $result = curl_exec($resourse);
-    curl_close($resource);
-    echo $result;
+    $result = curl_exec($curl);
+    preg_match_all("!/d!", $result, $matches);
+    print_r($matches);
     ?>
     <?php include "footer.html" ?>
 </body>
