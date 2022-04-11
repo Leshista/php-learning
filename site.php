@@ -205,7 +205,7 @@
     file_put_contents("dummy2.html", "<h2>I've been created by a script!</h2>");
     echo file_get_contents("dummy2.html");
     ?>
-    <!-- cURL -->
+    <!-- cURL read -->
     <?php
     $url = "https://jsonplaceholder.typicode.com/posts";
     $resource = curl_init($url); // Initializing cURL with provided url
@@ -217,8 +217,29 @@
     if (curl_errno($resource)) { // if curl has returned false
         echo 'Curl error: ' . curl_error($resource); // print error
     }
-    echo $result, "<br>";
+    echo $result, "<br><hr>";
     curl_close($resource); // End the cURL
+    ?>
+    <!-- cURL post -->
+    <?php
+    $url = "https://jsonplaceholder.typicode.com/posts";
+    $user = [
+        "name" => "Zoro",
+        "profession" => "PirateHunter"
+    ];
+    $resourse = curl_init($url);
+    curl_setopt_array($resource, [
+        CURLOPT_URL => $url,
+        CURLOPT_SSL_VERIFYHOST => false,
+        CURLOPT_SSL_VERIFYPEER => false,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST => true,
+        CURLOPT_HEADER => ['content-type: application/json'],
+        CURLOPT_POSTFIELDS => json_encode($user)
+    ]);
+    $result = curl_exec($resourse);
+    curl_close($resource);
+    echo $result;
     ?>
     <?php include "footer.html" ?>
 </body>
